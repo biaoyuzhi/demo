@@ -5,6 +5,7 @@ import com.example.demo.excel.util.ResponseData;
 import com.example.demo.pojo.TestDTO;
 import com.example.demo.service.AllService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,10 +36,10 @@ public class IndexController extends BaseController {
         return "OK";
     }
 
-    @RequestMapping("/test2")
-    public String indexTest2() {
+    @RequestMapping("/{uid}/test2")
+    public String indexTest2(@PathVariable("uid") String uid) {
         service.indexTest2();
-        return "OK";
+        return uid;
     }
 
 }
